@@ -2,6 +2,7 @@ class Food < ApplicationRecord
   belongs_to :user
   has_many :inventory_food
   has_many :recipe_food
+  has_many :recipes, through: :recipes_foods
 
   validates :name, presence: true
   validates :measurement_unit, presence: true
