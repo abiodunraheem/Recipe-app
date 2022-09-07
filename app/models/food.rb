@@ -1,3 +1,3 @@
 class Food < ApplicationRecord
-   has_many :inventory_food 
+  belongs_to :user
 end
