@@ -70,7 +70,7 @@ rspec
 
 👤 **Toussaint Saraza**
 
-👤 ****
+👤 **Olivier Gasominali**
 
 
 ## 🤝 Contributing
