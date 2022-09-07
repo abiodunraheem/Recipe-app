@@ -1,27 +1,24 @@
+# README
 
-![](https://img.shields.io/badge/Microverse-blueviolet)
-# Recipe App
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
+Things you may want to cover:
 
+* Ruby version
 
-### Description
-The Recipe app keeps track of all your recipes, ingredients, and inventory. It will allow you to save ingredients, keep track of what you have, create recipes, and generate a shopping list based on what you have and what you are missing from a recipe.
+* System dependencies
 
-### Preview
-[Recipe App](https://polar-lake-16717.herokuapp.com/)
+* Configuration
 
-![image](https://raw.githubusercontent.com/microverseinc/curriculum-rails/main/recipe-app/images/recipe_erd_3_members.png?token=GHSAT0AAAAAABOWCPLA57LZBCWNNJLJ6BIEYXJSSPQ)
+* Database creation
 
-### Cloning the project
+* Database initialization
 
- git clone https://github.com/abiodunraheem/Recipe-app <Your-Build-Directory>
-``` 
-- cd Recipe-app
-- rails s
-```
+* How to run the test suite
 
+* Services (job queues, cache servers, search engines, etc.)
 
-## Built with
-- Ruby 3.1.2 on Rails 7.0.3.1
-- PostgreSQL
+* Deployment instructions
+
 
