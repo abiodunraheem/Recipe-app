@@ -10,11 +10,11 @@ The Recipe app keeps track of all your recipes, ingredients, and inventory. It w
 ### Preview
 [Recipe App](https://polar-lake-16717.herokuapp.com/)
 
-![image](https://raw.githubusercontent.com/microverseinc/curriculum-rails/main/recipe-app/images/recipe_erd_2_members.png?token=GHSAT0AAAAAABOWCPLA57LZBCWNNJLJ6BIEYXJSSPQ)
+![image](https://raw.githubusercontent.com/microverseinc/curriculum-rails/main/recipe-app/images/recipe_erd_3_members.png?token=GHSAT0AAAAAABOWCPLA57LZBCWNNJLJ6BIEYXJSSPQ)
 
 ### Cloning the project
 
- git clone https://github.com/sentayhu19/Recipe-app <Your-Build-Directory>
+ git clone https://github.com/abiodunraheem/Recipe-app <Your-Build-Directory>
 ``` 
 - cd Recipe-app
 - rails s
@@ -27,7 +27,7 @@ The Recipe app keeps track of all your recipes, ingredients, and inventory. It w
 
 ## Prerequisites
 
-Vscode or anyother
+Vscode or  code editor of your choice
 Setup
 
 ## Install
@@ -77,7 +77,7 @@ rspec
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/sentayhu19/Catalog-of-my-things/issues).
+Feel free to check the [issues page](https://github.com/abiodunraheem/Recipe-app/issues).
 
 ## Show your support
 
