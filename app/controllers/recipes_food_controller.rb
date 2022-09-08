@@ -1,12 +1,12 @@
 class RecipesFoodController < ApplicationController
   before_action :set_recipes_food, only: %i[show edit update destroy]
 
-  # GET /recipes_foods 
+  # GET /recipes_foods or /recipes_foods.json
   def index
     @recipes_foods = RecipesFood.all
   end
 
-  # GET /recipes_foods/1
+  # GET /recipes_foods/1 or /recipes_foods/1.json
   def show; end
 
   # GET /recipes_foods/new
@@ -16,7 +16,7 @@ class RecipesFoodController < ApplicationController
     @foods = Food.where(user_id: current_user.id)
   end
 
-  # POST /recipes_foods 
+  # POST /recipes_foods or /recipes_foods.json
   def create
     @foods = Food.where(user_id: current_user.id)
     @food = Food.find(recipes_food_params['food'])
@@ -34,7 +34,7 @@ class RecipesFoodController < ApplicationController
     end
   end
 
-  # DELETE /recipes_foods/1 
+  # DELETE /recipes_foods/1 or /recipes_foods/1.json
   def destroy
     @recipes_food.destroy
 
