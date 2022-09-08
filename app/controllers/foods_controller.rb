@@ -14,7 +14,7 @@ class FoodsController < ApplicationController
     @food = Food.new
   end
 
-  # POST /foods or /foods.json
+  # POST /foods 
   def create
     user = current_user
     @food = Food.new(food_params)
