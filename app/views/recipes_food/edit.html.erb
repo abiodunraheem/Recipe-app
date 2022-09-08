@@ -1,2 +1,10 @@
-<h1>RecipesFood#create</h1>
-<p>Find me in app/views/recipes_food/create.html.erb</p>
+<h1>Editing recipes food</h1>
+
+<%= render "form", recipes_food: @recipes_food %>
+
+<br>
+
+<div>
+  <%= link_to "Show this recipes food", @recipes_food %> |
+  <%= link_to "Back to recipes foods", recipesFoods_path %>
+</div>
