@@ -110,6 +110,9 @@ rspec
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/abiodun-raheem)
 
 👤 **Toussaint Saraza**
+- GitHub: [@githubhandle](https://github.com/sarazaToussaint)
+- Twitter: [@twitterhandle](https://twitter.com/ToussaintSaraz1)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/toussaintsaraza/) 
 
 👤 **Olivier Gasominali**
 - GitHub: [@GOlivierNation](https://github.com/GOlivierNation)
