@@ -1,0 +1,9 @@
+.inventory-heading {
+  font-size: 2rem;
+  background-color: black;
+}
+
+.inventoryItem {
+  display: flex;
+  justify-content: center;
+}
