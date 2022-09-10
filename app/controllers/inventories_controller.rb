@@ -1,46 +1,47 @@
 class InventoriesController < ApplicationController
-#   before_action do
-#       @user = User.first
-#   end
-  
+  before_action :set_inventory, only: %i[show destroy]
+  before_action :authenticate_user!, only: %i[new create destroy]
   def index
     @inventories = Inventory.all
-    # @inventories = current_user.inventories.includes(:user).all
   end
 
   def show
-    @inventory = current_user.Inventory.includes(:user).find(params[:id])
     @foods = @inventory.inventory_foods.includes(:food)
-    # @inventory = Inventory.find(params[:id])
   end
-  
-  
+
   def new
     @inventory = Inventory.new
   end
-  
+
   def create
-    @inventory = Inventory.new(inventory_params)
+    @inventory = Inventory.new(new_inventory_params)
     @inventory.user = current_user
+
     if @inventory.save
-      flash[:success] = 'Inventory has been created !!'
+      flash[:notice] = 'Inventory created successfully!'
       redirect_to user_inventories_path
     else
-      flash['alert'] = 'Inventory could not created !!'
+      flash.now[:alert] = 'Something unexpected happened, inventory could not be created.'
       render :new
     end
-    end
-  
-  def destroy
-    inventory = Inventory.find(params[:id])
-    inventory.destroy
-    flash[:success] = 'Inventory successfully deleted'
-    redirect_to inventories_path
   end
-  
+
+  def destroy
+    if @inventory.destroy
+      flash[:notice] = 'Inventory deleted successfully!'
+    else
+      flash[:alert] = 'Something unexpected happened, inventory could not be deleted.'
+    end
+    redirect_to user_inventories_path
+  end
+
   private
-  
-  def inventory_params
-    params.require('inventory').permit(:name)
+
+  def set_inventory
+    @inventory = Inventory.find(params[:id])
+  end
+
+  def new_inventory_params
+    params.require(:inventory).permit(:name)
   end
 end

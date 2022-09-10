@@ -1,8 +1,5 @@
-<div class="container mw-auto">
-  <h1 class="fade-in text-center mt-5">Welcome to Recipe App</h1>
-  <div class="d-flex justify-content-center">
-    <%=image_tag "breakfast.jpg"%>
-    <%=image_tag "hamburger.jpg"%>
-  </div>
-</div>
-
+<% if user_signed_in? %>
+<%= button_to "log Out", destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
+<% else %>
+<%= link_to "log In", new_user_session_path, class: "btn btn-primary" %>
+<% end %>

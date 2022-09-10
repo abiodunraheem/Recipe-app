@@ -1,6 +1,7 @@
-<h1>Add New Inventory</h1>
-<%= form_with model: Inventory, method: :post do |form| %>
-  <%= form.text_field :name, placeholder: 'Enter name' %>
-  <%= form.text_area :description, size: "20x5", placeholder: 'Add description...' %>
-  <%= form.submit 'Save Inventory' %>
-<% end %>
+<div>
+    <h2> Create a new inventory: </h2>
+    <%= form_with model: @inventory, url: user_inventories_path, method: :post do |form| %>
+        <%= form.text_field :name %>
+        <%= form.submit 'Add new inventory', class: 'btn btn-primary'%>
+    <% end %>
+</div>

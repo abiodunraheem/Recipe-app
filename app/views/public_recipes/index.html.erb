@@ -1,31 +1,25 @@
-<div>
-  <div>
-    <h5>Public Recipes</h5>
-  </div>
-  <div>
-    <% if @public_recipes.empty? %>
-      <h5>Sorry we don't have any public recipe ! Only recipes with ingredients or foods are visible here.</h5>
-    <% else %>
-      <% @public_recipes.each do |recipe| %>
+<nav class="navbar navbar-light bg-light">
+  <% unless user_signed_in? %>
+      <%= link_to "Log In", new_user_session_path, class: "btn btn-primary" %>
+  <% end %>
+</nav>
+
+
+<% if @public_recipes.empty? %>
+	<h2> There are no public recipes! </h2>
+	
+<% else %>
+<% @public_recipes.each do |recipe| %>
+<% if recipe.public %>
+    <div class="publicRecipesContainer">
         <div>
-          <div>
-            <div>
-              <%= link_to recipe_path(recipe[:id]), method: :get, class: "nav-link" do %>
-                <h5>
-                  <%= recipe[:recipe_name] %>
-                </h5>
-              <% end %>
-            </div>
-            <div>
-              <h5>By <%= recipe[:author].name %></h5>
-            </div>
-          </div>
-          <div>
-            <h5>Total food items : <%= recipe[:food_items] %> </h5>
-            <h5>Total price : $ <%= recipe[:total_price] %></h5>
-          </div>
+            <h2><%= link_to recipe.name, user_recipe_path(recipe.user_id, recipe) %></h2>
+            <p>By <%= recipe.user.email %></p>
         </div>
+        <p>Total food items:</p>
+        <p>Total price:</p>
+    </div>
       <% end %>
     <% end %>
-  </div>
-</div>
+<% end %>
+<%= link_to "Go Home", users_path %>

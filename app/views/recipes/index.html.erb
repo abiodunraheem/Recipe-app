@@ -1,30 +1,16 @@
-<p style="color: green"><%= notice %></p>
-
 <h1>Recipes</h1>
 
-<div id="recipes">
-  <% @recipes.each do |recipe| %>
-    <div class="d-flex justify-content-between">
-      <div>
+<%= link_to "Create new Recipe", new_user_recipe_path %>
+<% @recipes.each do |recipe| %>
+<ul class="recipeList">
+    <li class="reciperecipe">
         <div>
-          <h5><%= recipe.name %></h5>
+            <h2><%= link_to recipe.name, user_recipe_path(recipe.user_id, recipe.id) %></h2>
+            <% if can? :manage, recipe %>
+            <%= button_to 'Destroy this post', { action: "destroy", id: recipe.id }, method: :delete, class: "btn btn-danger" %>
+            <% end %>
         </div>
-        <div class="d-flex">
-          <button type="button" class="btn btn-primary">
-            <%= link_to 'Details', recipe_path(recipe), method: :get, class: "nav-link" %>
-          </button>
-          <% if can? :destroy, recipe %>
-            <div>
-              <%= button_to 'Remove', recipe_path(recipe), method: :delete, class: "btn btn-danger" %>
-            </div>
-          <% end %>
-        </div>
-      </div>
-      <div>
         <p><%= recipe.description %></p>
-      </div>
-    </div>
-  <% end %>
-</div>
-
-<%= link_to "New recipe", new_recipe_path %>
+    </li>
+</ul>
+<% end %>

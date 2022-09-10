@@ -1,14 +1,17 @@
-<div class="container">
-  <div class="child-container">
-     <%= link_to 'Add New Inventory', new_inventory_path, class: "btn" %>
-  </div>
-  <% @inventories.each do |inventory| %>
-    <div class="card">
-      <div>
-        <h2><%= inventory.name%></h2>
-        <%= button_to 'REMOVE', inventory_path(inventory.id), method: :delete, class: 'btn-link' %>
-      </div>
-      <p> <%= inventory.description%></p>
-    </div>
-  <% end%>
-</div>
+
+<% if @inventories.empty? %>
+	<h2> Your list of inventories is empty! </h2>
+	
+<% else %>
+	<h2> Your inventories list: </h2>
+	
+	<% @inventories.each do |inventory| %>
+		<li class="d-flex flew-row">
+			<h3 class="me-3"><%= link_to inventory.name, user_inventory_path(inventory.user_id, inventory) %></h3>
+			<% if can? :destroy, inventory %>
+			<%= button_to 'Delete', user_inventory_path(inventory.user_id, inventory), method: :delete, class: 'btn btn-danger' %>
+			<% end %>
+		</li>
+	<% end %>
+<% end %>
+<%= link_to 'Add new inventory', new_user_inventory_path, class: 'btn btn-primary' %>
