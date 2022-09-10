@@ -1,54 +1,44 @@
 class RecipesController < ApplicationController
-  before_action :set_recipe, only: %i[show edit update destroy]
-
-  # GET /recipes or /recipes.json
+  load_and_authorize_resource
+  before_action :set_recipe, only: %i[show delete]
+  before_action :authenticate_user!, only: %i[new create destroy]
   def index
-    @recipes = current_user.recipes
+    @recipes = Recipe.all
   end
 
-  # GET /recipes/1 or /recipes/1.json
-  def show
-    @recipe = Recipe.includes(:user).where(id: params[:id]).first
-    @recipe_foods = RecipesFood.includes(:food, :recipe).where(recipe_id: params[:id])
-  end
-
-  # GET /recipes/new
   def new
+    @user = User.find(params[:user_id])
     @recipe = Recipe.new
   end
 
-  # POST /recipes or /recipes.json
   def create
-    @recipe = current_user.recipes.new(recipe_params)
+    @recipe = Recipe.new(recipe_params)
+    @recipe.user_id = current_user.id
 
-    respond_to do |format|
-      if @recipe.save
-        format.html { redirect_to recipe_url(@recipe), notice: 'Recipe was successfully created.' }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-      end
+    if @recipe.save
+      redirect_to user_recipes_path
+    else
+      render :new
     end
   end
 
-  # DELETE /recipes/1 or /recipes/1.json
   def destroy
     @recipe.destroy
 
-    respond_to do |format|
-      format.html { redirect_to recipes_url, notice: 'Recipe was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to user_recipes_path
+  end
+
+  def show
+    @foods = @recipe.recipe_foods.includes(:food)
   end
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_recipe
     @recipe = Recipe.find(params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
   def recipe_params
-    params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public)
+    params.require(:recipe).permit(:name, :description, :preparation_time, :cooking_time, :public)
   end
 end
