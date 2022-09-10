@@ -9,6 +9,7 @@ gem 'rails', '~> 7.0.3', '>= 7.0.3.1'
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
 gem 'heroicon'
+gem 'devise'
 
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
@@ -27,6 +28,7 @@ gem 'stimulus-rails'
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem 'jbuilder'
+
 
 # Add gem to use devise in App
 # gem 'devise'
