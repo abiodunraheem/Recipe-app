@@ -112,6 +112,9 @@ rspec
 👤 **Toussaint Saraza**
 
 👤 **Olivier Gasominali**
+- GitHub: [@GOlivierNation](https://github.com/GOlivierNation)
+- Twitter: [@OGasominali](https://twitter.com/OGasominali)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/oliviergasominali/)
 
 ## 🤝 Contributing
 
